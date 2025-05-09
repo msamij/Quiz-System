@@ -17,6 +17,8 @@ class StudentAnswerAdmin(ReadOnlyAdmin):
     list_display = ('student_name', 'question_text', 'choice', 'submitted_at')
     search_fields = ('student__name', 'question__question_text', 'choice')
     readonly_fields = ('student', 'question', 'choice')
+    list_filter = ['student__name',
+                   'student__batch_name', 'student__batch_time']
 
     def student_name(self, obj):
         return obj.student.name
@@ -38,7 +40,7 @@ class StudentAdmin(ReadOnlyAdmin):
 
 
 class QuestionAdmin(ReadOnlyAdmin):
-    list_display = ('question_text',)
+    list_display = ('question_text', 'id')
     readonly_fields = ('question_text',)
 
 

@@ -1,0 +1,117 @@
+{% extends 'quiz/base.html' %} {% block content %}
+<h2 class="feedback-heading">Quiz Form</h2>
+<form method="post">
+  {% csrf_token %} {% for question in questions %}
+  <p class="question"><strong>{{ question.question_text }}</strong></p>
+
+  <select name="q{{ question.id }}" required>
+    <option value="" selected disabled>Select an option</option>
+
+    {% if question.id == 13 %}
+    <option value="(html) (html)">(html) (html)</option>
+    <option value="&lt;html&gt;&lt;/html&gt;">&lt;html&gt;&lt;/html&gt;</option>
+    <option value="[html][html]">[html][html]</option>
+    <option value="All of the above">All of the above</option>
+
+    {% elif question.id == 14 %}
+    <option value="&lt;style&gt;&lt;/style&gt;">&lt;style&gt;&lt;/style&gt;</option>
+    <option value="&lt;css&gt;&lt;/css&gt;">&lt;css&gt;&lt;/css&gt;</option>
+    <option value="&lt;capture&gt;&lt;/capture&gt;">&lt;capture&gt;&lt;/capture&gt;</option>
+    <option value="All of the above.">All of the above.</option>
+
+    {% elif question.id == 15 %}
+    <option value="&lt;style&gt;&lt;/style&gt;">&lt;style&gt;&lt;/style&gt;</option>
+    <option value="&lt;link&gt;&lt;/link&gt;">&lt;link&gt;&lt;/link&gt;</option>
+    <option value="&lt;css&gt;&lt;/css&gt;">&lt;css&gt;&lt;/css&gt;</option>
+    <option value="None of the above.">None of the above.</option>
+
+    {% elif question.id == 16 %}
+    <option value="&lt;h2&gt;&lt;/h2&gt;">&lt;h2&gt;&lt;/h2&gt;</option>
+    <option value="&lt;h1&gt;&lt;/h1&gt;">&lt;h1&gt;&lt;/h1&gt;</option>
+    <option value="&lt;h3&gt;&lt;/h3&gt;">&lt;h3&gt;&lt;/h3&gt;</option>
+    <option value="&lt;h6&gt;&lt;/h6&gt;">&lt;h6&gt;&lt;/h6&gt;</option>
+
+    {% elif question.id == 17 %}
+    <option value="&lt;button&gt;&lt;/button&gt;">&lt;button&gt;&lt;/button&gt;</option>
+    <option value="&lt;div&gt;&lt;/div&gt;">&lt;div&gt;&lt;/div&gt;</option>
+    <option value="&lt;box&gt;&lt;/box&gt;">&lt;box&gt;&lt;/box&gt;</option>
+    <option value="None of the above.">None of the above.</option>
+
+    {% elif question.id == 18 %}
+    <option value="&lt;button&gt;&lt;/button&gt;">&lt;button&gt;&lt;/button&gt;</option>
+    <option value="&lt;div&gt;&lt;/div&gt;">&lt;div&gt;&lt;/div&gt;</option>
+    <option value="&lt;span&gt;&lt;/span&gt;">&lt;span&gt;&lt;/span&gt;</option>
+    <option value="None of the above.">Both 1 and 3.</option>
+
+    {% elif question.id == 19 %}
+    <option value="&lt;button&gt;&lt;/button&gt;">&lt;button&gt;&lt;/button&gt;</option>
+    <option value="&lt;div&gt;&lt;/div&gt;">&lt;div&gt;&lt;/div&gt;</option>
+    <option value="&lt;span&gt;&lt;/span&gt;">&lt;span&gt;&lt;/span&gt;</option>
+    <option value="None of the above.">All of the above.</option>
+
+    {% elif question.id == 20 %}
+    <option value="Block level elements takes up full width of the page and starts on new line.">
+      Block level elements takes up full width of the page and starts on new line.
+    </option>
+    <option value="Block level elements only takes up half width of the page.">
+      Block level elements only takes up half width of the page.
+    </option>
+    <option value="Block level elements may take up full width of the page but does not starts on a new line.">
+      Block level elements may take up full width of the page but does not starts on a new line.
+    </option>
+    <option value="None of the above.">None of the above.</option>
+
+    {% elif question.id == 21 %}
+    <option value="text-color;">text-color;</option>
+    <option value="color;">color;</option>
+    <option value="background-color;">background-color;</option>
+    <option value="Both 1 and 2.">Both 1 and 2.</option>
+
+    {% elif question.id == 22 %}
+    <option value="font-size;">font-size;</option>
+    <option value="text-size;">text-size;</option>
+    <option value="text-large;">text-large;</option>
+    <option value="both 1 and 2.">both 1 and 2.</option>
+
+    {% elif question.id == 23 %}
+    <option value="*">*</option>
+    <option value="all">all</option>
+    <option value="**">**</option>
+    <option value="All of the above.">All of the above.</option>
+
+    {% elif question.id == 24 %}
+    <option value="#element">#element</option>
+    <option value=".element">.element</option>
+    <option value="$element.">$element.</option>
+    <option value="*element.">*element.</option>
+
+    {% elif question.id == 25 %}
+    <option value="#element">#element</option>
+    <option value=".element">.element</option>
+    <option value="$element.">$element.</option>
+    <option value="*element.">*element.</option>
+
+    {% elif question.id == 26 %}
+    <option value="image;">image;</option>
+    <option value="new-image;">new-image;</option>
+    <option value="background-image;">background-image;</option>
+    <option value="Both 1 and 2.">Both 1 and 2.</option>
+
+    {% elif question.id == 27 %}
+    <option value="align-text;">align-text;</option>
+    <option value="text-align;">text-align;</option>
+    <option value="set-text;">set-text;</option>
+    <option value="Both 1 and 2.">Both 1 and 2.</option>
+
+    {% elif question.id == 28 %}
+    <option value="margin;">margin;</option>
+    <option value="padding;">padding;</option>
+    <option value="outside;">outside;</option>
+    <option value="Both 1 and 2.">Both 1 and 2.</option>
+    {% endif %}
+  </select>
+  <br /><br />
+  {% endfor %}
+  <button type="submit">Submit answers</button>
+</form>
+{% endblock %}

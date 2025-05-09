@@ -37,5 +37,5 @@ def quiz_form(request, student_id):
                 )
 
         return render(request, 'quiz/thankyou.html')
-    questions = Question.objects.all()
-    return render(request, 'quiz/quiz_form.html', {'questions': questions})
+    questions = Question.objects.all().filter(id__gte=13, id__lte=28)
+    return render(request, 'quiz/quiz_form_new.html', {'questions': questions})

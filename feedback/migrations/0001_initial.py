@@ -34,6 +34,7 @@ def load_questions(apps, schema_editor):
         "What is the correct method used to add class to an HTML element using javascript?",
         "Which property is used to change text of HTML element using javascript?"
     ]
+
     for q in questions:
         Question.objects.create(question_text=q)
 
