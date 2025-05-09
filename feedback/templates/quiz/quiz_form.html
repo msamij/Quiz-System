@@ -1,0 +1,85 @@
+{% extends 'quiz/base.html' %} {% block content %}
+<h2 class="feedback-heading">Quiz Form</h2>
+<form method="post">
+  {% csrf_token %} {% for question in questions %}
+  <p class="question"><strong>{{ question.question_text }}</strong></p>
+
+  <select name="q{{ question.id }}" required>
+    <option value="" selected disabled>Select an option</option>
+
+    {% if question.id == 1 %}
+    <option value="var">var</option>
+    <option value="let">let</option>
+    <option value="const">const</option>
+    <option value="All of the above">All of the above</option>
+
+    {% elif question.id == 2 %}
+    <option value="var">var</option>
+    <option value="let">let</option>
+    <option value="const">const</option>
+    <option value="All of the above">All of the above</option>
+
+    {% elif question.id == 3 %}
+    <option value="age is 20">age is 20</option>
+    <option value="age is not 20">age is not 20</option>
+    <option value="undefined">undefined</option>
+    <option value="null">null</option>
+
+    {% elif question.id == 4 %}
+    <option value="age is b/w 20 and 30">age is b/w 20 and 30</option>
+    <option value="age is not b/w 20 and 30">age is not b/w 20 and 30</option>
+    <option value="undefined">undefined</option>
+    <option value="null">null</option>
+
+    {% elif question.id == 5 %}
+    <option value="let myArray = [];">let myArray = [];</option>
+    <option value="let myArray = {};">let myArray = {};</option>
+    <option value="both 1 and 2">both 1 and 2</option>
+
+    {% elif question.id == 6 %}
+    <option value="1">1</option>
+    <option value="0">0</option>
+    <option value="-1">-1</option>
+
+    {% elif question.id == 7 %}
+    <option value="push()">push()</option>
+    <option value="remove()">remove()</option>
+    <option value="pop()">pop()</option>
+    <option value="None of the above">None of the above</option>
+
+    {% elif question.id == 8 %}
+    <option value="forEach()">forEach()</option>
+    <option value="includes()">includes()</option>
+    <option value="length()">length()</option>
+    <option value="None of the above">None of the above</option>
+
+    {% elif question.id == 9 %}
+    <option value="array.length">array.length</option>
+    <option value="array.array">array.array</option>
+    <option value="array.sum">array.sum</option>
+    <option value="array.all">array.all</option>
+
+    {% elif question.id == 10 %}
+    <option value="document.getElement()">document.getElement()</option>
+    <option value="document.querySelector()">document.querySelector()</option>
+    <option value="document.createElement()">document.createElement()</option>
+    <option value="document.removeElement()">document.removeElement()</option>
+
+    {% elif question.id == 11 %}
+    <option value="element.classList.add()">element.classList.add()</option>
+    <option value="element.class.insert()">element.class.insert()</option>
+    <option value="element.insertClass()">element.insertClass()</option>
+    <option value="All of the above">All of the above</option>
+
+    {% elif question.id == 12 %}
+    <option value="textContent">textContent</option>
+    <option value="text">text</option>
+    <option value="changeText">changeText</option>
+    <option value="newText">newText</option>
+    {% endif %}
+  </select>
+  <br /><br />
+  {% endfor %}
+  <button type="submit">Submit Feedback</button>
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'quiz/base.html' %} {% block content %}
+<h2 class="heading-main">
+  <p class="heading-sub">Please take a moment to fill out your information to begin quiz.</p>
+</h2>
+<form method="post">
+  {% csrf_token %}
+  <label>Name:</label>
+  <input type="text" name="name" required />
+  <br />
+
+  <label>Batch Name:</label>
+  <input type="text" name="batch_name" required />
+  <br />
+
+  <select name="batch_time" required>
+    <option value="" selected disabled>Select an option</option>
+
+    <option value="9 to 11">9 to 11</option>
+    <option value="11 to 1">11 to 1</option>
+    <option value="3 to 5">3 to 5</option>
+  </select>
+
+  <br />
+  <button type="submit">Proceed to Quiz</button>
+</form>
+{% endblock %}
